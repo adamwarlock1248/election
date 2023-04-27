@@ -46,7 +46,7 @@ contract("Election", function(accounts) {
     })
   });
 
-  it("throws an exception for invalid candiates", function() {
+  it("throws an exception for invalid candidates", function() {
     return Election.deployed().then(function(instance) {
       electionInstance = instance;
       return electionInstance.vote(99, { from: accounts[1] })
@@ -62,20 +62,27 @@ contract("Election", function(accounts) {
       assert.equal(voteCount, 0, "candidate 2 did not receive any votes");
     });
   });
+  
 
   it("throws an exception for double voting", function() {
     return Election.deployed().then(function(instance) {
       electionInstance = instance;
       candidateId = 2;
-      electionInstance.vote(candidateId, { from: accounts[1] });
+      return electionInstance.vote(candidateId, { from: accounts[1] });
+    }).then(function() {
       return electionInstance.candidates(candidateId);
     }).then(function(candidate) {
       var voteCount = candidate[2];
       assert.equal(voteCount, 1, "accepts first vote");
+      // Wait for a second to allow for the first vote to be processed
+      return new Promise(function(resolve, reject) {
+        setTimeout(resolve, 1000);
+      });
+    }).then(function() {
       // Try to vote again
       return electionInstance.vote(candidateId, { from: accounts[1] });
     }).then(assert.fail).catch(function(error) {
-      assert(error.message.indexOf('revert') >= 0, "error message must contain revert");
+      assert.include(error.toString(), 'revert', "error message must contain revert");
       return electionInstance.candidates(1);
     }).then(function(candidate1) {
       var voteCount = candidate1[2];
@@ -86,4 +93,9 @@ contract("Election", function(accounts) {
       assert.equal(voteCount, 1, "candidate 2 did not receive any votes");
     });
   });
+   
+  
 });
+// assert.equal(voteCount, 1, "candidate 2 did not receive any votes");
+//     });
+//   });  
