@@ -10,7 +10,7 @@ https://github.com/dappuniversity/election/tree/2019_update
 
 Follow the steps below to download, install, and run this project.
 
-## Dependencies
+## Step 0. Dependencies
 Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
@@ -36,6 +36,7 @@ Open the Ganache GUI client that you downloaded and installed. This will start y
 ```
 truffle migrate --reset
 ```
+If the above command is 
 You must migrate the election smart contract each time your restart ganache.
 ```
 truffle test
