@@ -36,10 +36,17 @@ Open the Ganache GUI client that you downloaded and installed. This will start y
 ```
 truffle migrate --reset
 ```
-If the above command is 
+If the above command is not working then run the following command.
+```
+npx truffle migrate --reset
+```
 You must migrate the election smart contract each time your restart ganache.
 ```
 truffle test
+```
+If the above command is not working then run the following command.
+```
+npx truffle test
 ```
 
 ## Step 5. Configure Metamask
