@@ -24,6 +24,8 @@ Install these prerequisites to follow along with the tutorial. See free video tu
 ## Step 2. Install dependencies
 ```
 $ cd election
+```
+```
 $ npm install
 ```
 ## Step 3. Start Ganache
