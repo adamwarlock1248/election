@@ -74,7 +74,7 @@
   "sourceMap": "75:499:1:-;;;235:51;8:9:-1;5:2;;;30:1;27;20:12;5:2;235:51:1;270:10;262:5;;:18;;;;;;;;;;;;;;;;;;75:499;;;;;;",
   "deployedSourceMap": "75:499:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;75:499:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;403:168;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;403:168:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;125:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;100:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;292:105;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;292:105:1;;;;;;;;;;;;;;;;;:::i;:::-;;403:168;215:5;;;;;;;;;;;201:19;;:10;:19;;;197:26;;;466:19;499:11;466:45;;518:8;:21;;;540:24;;518:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;518:47:1;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;518:47:1;;;;222:1;197:26;403:168;:::o;125:36::-;;;;:::o;100:20::-;;;;;;;;;;;;;:::o;292:105::-;215:5;;;;;;;;;;;201:19;;:10;:19;;;197:26;;;382:9;355:24;:36;;;;197:26;292:105;:::o",
   "source": "// SPDX-License-Identifier: Unlicense\r\npragma solidity >=0.4.22 <0.8.0;\r\n\r\ncontract Migrations {\r\n  address public owner;\r\n  uint public last_completed_migration;\r\n\r\n  modifier restricted() {\r\n    if (msg.sender == owner) _;\r\n  }\r\n\r\n  constructor() public{\r\n    owner = msg.sender;\r\n  }\r\n\r\n  function setCompleted(uint completed) public restricted {\r\n    last_completed_migration = completed;\r\n  }\r\n\r\n  function upgrade(address new_address) public restricted {\r\n    Migrations upgraded = Migrations(new_address);\r\n    upgraded.setCompleted(last_completed_migration);\r\n  }\r\n}\r\n",
-  "sourcePath": "D:\\BCproj\\full\\election\\contracts\\Migrations.sol",
+  "sourcePath": "D:\\BCproj\\full\\New folder\\election\\contracts\\Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -1475,8 +1475,8 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xB7d9226dFC080dDdf0bd6C945e742eaeD3d588Ba",
-      "transactionHash": "0xbe482356680792e6dace438f85caaa9a0e9a4915ce4fc5d44987c590c03e95ff"
+      "address": "0xb769C2Ea27c3dBE8E827eB89e4ba27b20B1Ceb20",
+      "transactionHash": "0x7634a0f1e1c254c5ebfa5fba1578618269c1ce725d53195a772b5e12e30b3911"
     },
     "5777": {
       "events": {},
@@ -1485,7 +1485,7 @@
     }
   },
   "schemaVersion": "3.4.13",
-  "updatedAt": "2023-04-27T18:48:13.170Z",
+  "updatedAt": "2023-04-29T17:40:23.523Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
